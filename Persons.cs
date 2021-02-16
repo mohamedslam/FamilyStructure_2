@@ -10,7 +10,11 @@ namespace FamilyStructure_2
     class Person
     {
 
+
+
         #region Feilds
+
+
 
         public string FullName { get; }
         private Person Husband { get; set; }
@@ -19,9 +23,12 @@ namespace FamilyStructure_2
         private List<Person> MainParant_list = new List<Person>();
         private List<Person> Parant_Child_list = new List<Person>();
 
+
+
         #endregion
 
         #region Methods
+
         public Person(string name, Person _parent = null, Person husspand = null)
         {
             FullName = name;
@@ -168,5 +175,8 @@ namespace FamilyStructure_2
         }
 
         #endregion
+
+
+
     }
 }
