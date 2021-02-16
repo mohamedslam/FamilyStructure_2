@@ -41,7 +41,7 @@ namespace FamilyStructure_2
             //<<<<<<<<<<<< Family Ftructure >>>>///////////////////////
 
             //level 1 of familyStructure 
-            Person Mohamed = new Person("Mohamed");
+            Person Mohamed = new Person("Mohamed" );
             Person Ahmed = new Person("Ahmed");
             Person.Married(Mohamed, Ahmed);
 

@@ -35,7 +35,7 @@ namespace FamilyStructure_2
             ParantRecord = _parent;
             Husband = husspand;
 
-            if (_parent != null)
+            if (_parent !=  null)
             {
                 ParantRecord.Parant_Child_list.Add(this);
                 MainParant_list.Add(ParantRecord);
