@@ -55,16 +55,16 @@ namespace FamilyStructure_2
             List<Person> Brothers_list = new List<Person>();
             if (ParantRecord != null)
             {
-                foreach (Person parent in this.GetMainParents())
+                foreach (Person parent in GetMainParents())
                 {
-                    foreach (Person sibling in parent.GetAllChilds())
+                    foreach (Person Brothers in parent.GetAllChilds())
                     {
-                        if (sibling != null)
+                        if (Brothers != null)
                         {
-                            if (sibling != this)
+                            if (Brothers != this)
                             {
-                                if (!Brothers_list.Contains(sibling))
-                                    Brothers_list.Add(sibling);
+                                if (!Brothers_list.Contains(Brothers))
+                                    Brothers_list.Add(Brothers);
                             }
                         }
 
