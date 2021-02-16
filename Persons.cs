@@ -22,38 +22,38 @@ namespace FamilyStructure_2
         #endregion
 
         #region Methods
-        public Person(string name, Person parent = null, Person husspand = null)
+        public Person(string name, Person _parent = null, Person husspand = null)
         {
-            this.FullName = name;
-            this.ParantRecord = parent;
-            this.Husband = husspand;
+            FullName = name;
+            ParantRecord = _parent;
+            Husband = husspand;
 
-            if (parent != null)
+            if (_parent != null)
             {
-                this.ParantRecord.Parant_Child_list.Add(this);
-                this.MainParant_list.Add(this.ParantRecord);
-                if (this.ParantRecord.Husband != null)
+                ParantRecord.Parant_Child_list.Add(this);
+                MainParant_list.Add(ParantRecord);
+                if (ParantRecord.Husband != null)
                 {
-                    this.ParantRecord.Husband.Parant_Child_list.Add(this);
-                    this.MainParant_list.Add(this.ParantRecord.Husband);
+                    ParantRecord.Husband.Parant_Child_list.Add(this);
+                    MainParant_list.Add(ParantRecord.Husband);
                 }
             }
         }
 
         public List<Person> GetAllChilds()
         {
-            return this.Parant_Child_list;
+            return Parant_Child_list;
         }
 
         public List<Person> GetMainParents()
         {
-            return this.MainParant_list;
+            return MainParant_list;
         }
 
         public List<Person> GetBrothersAndSisters()
         {
             List<Person> Brothers_list = new List<Person>();
-            if (this.ParantRecord != null)
+            if (ParantRecord != null)
             {
                 foreach (Person parent in this.GetMainParents())
                 {
@@ -80,7 +80,7 @@ namespace FamilyStructure_2
         public List<Person> GetAllUncles()
         {
             List<Person> AllUncles_list = new List<Person>();
-            if (this.ParantRecord != null)
+            if (ParantRecord != null)
             {
                 foreach (Person parent in this.GetMainParents())
                 {
@@ -110,9 +110,9 @@ namespace FamilyStructure_2
         public List<Person> GetCousins()
         {
             List<Person> cousins_list = new List<Person>();
-            if (this.ParantRecord != null)
+            if (ParantRecord != null)
             {
-                foreach (Person uncle in this.GetAllUncles())
+                foreach (Person uncle in GetAllUncles())
                 {
                     if (uncle != null)
                     {
