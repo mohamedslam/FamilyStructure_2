@@ -82,7 +82,7 @@ namespace FamilyStructure_2
             List<Person> AllUncles_list = new List<Person>();
             if (ParantRecord != null)
             {
-                foreach (Person parent in this.GetMainParents())
+                foreach (Person parent in GetMainParents())
                 {
                     if (parent.ParantRecord != null)
                     {
