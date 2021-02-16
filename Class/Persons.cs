@@ -21,7 +21,7 @@ namespace FamilyStructure_2
         #endregion
 
         #region Methods
-
+   
         public Person(string name, Person _parent = null, Person husspand = null)
         {
             FullName = name;
@@ -52,37 +52,30 @@ namespace FamilyStructure_2
 
         public List<Person> GetBrothersAndSisters()
         {
-            List<Person> Brothers_list = new List<Person>();
+            var Brothers_list = new List<Person>();
             if (ParantRecord != null)
             {
-                foreach (Person p in GetMainParents())
-                {
-                    foreach (Person Brothers in p.GetAllChilds())
-                    {
-                        if (Brothers != null)
-                        {
-                            if (Brothers != this)
-                            {
+                foreach (var p in GetMainParents())                
+                    foreach (var Brothers in p.GetAllChilds())                    
+                        if (Brothers != null)                       
+                            if (Brothers != this)                            
                                 if (!Brothers_list.Contains(Brothers))
                                     Brothers_list.Add(Brothers);
-                            }
-                        }
-
-                    }
-                }
-                return Brothers_list;
+                        
+                       
+                
+            
             }
-            else
-                return null;
+                return Brothers_list;
 
         }
 
         public List<Person> GetAllUncles()
         {
-            List<Person> AllUncles_list = new List<Person>();
+            var AllUncles_list = new List<Person>();
             if (ParantRecord != null)
             {
-                foreach (Person parent in GetMainParents())
+                foreach (var parent in GetMainParents())
                 {
                     if (parent.ParantRecord != null)
                     {
@@ -92,27 +85,24 @@ namespace FamilyStructure_2
                             {
                                 if (!AllUncles_list.Contains(uncle))
                                     AllUncles_list.Add(uncle);
-                                if (uncle.Husband != null)
-                                {
+                                if (uncle.Husband != null)                                
                                     if (!AllUncles_list.Contains(uncle.Husband))
                                         AllUncles_list.Add(uncle.Husband);
-                                }
+                                
                             }
                         }
                     }
                 }
-                return AllUncles_list;
-            }
-            else
-                return null;
+             }
+            return AllUncles_list;
         }
 
         public List<Person> GetCousins()
         {
-            List<Person> cousins_list = new List<Person>();
+            var cousins_list = new List<Person>();
             if (ParantRecord != null)
             {
-                foreach (Person uncle in GetAllUncles())
+                foreach (var uncle in GetAllUncles())
                 {
                     if (uncle != null)
                     {
@@ -127,29 +117,27 @@ namespace FamilyStructure_2
                     }
 
                 }
-                return cousins_list;
+                
             }
-            else
-                return null;
+            return cousins_list;
         }
 
-        public List<Person> GetInLaw()
+        public List<Person> GetInLaws()
         {
-            List<Person> inlaw_list = new List<Person>();
+           var inlaw_list = new List<Person>();
             if (Husband != null)
             {
                 if (Husband.ParantRecord != null)
                 {
-                    foreach (Person Inlaw in Husband.GetMainParents())
+                    foreach (var  Inlaw in Husband.GetMainParents())
                     {
                         if (Inlaw != null)
                             inlaw_list.Add(Inlaw);
                     }
                 }
-                return inlaw_list;
+               
             }
-            else
-                return null;
+            return inlaw_list;
         }
 
         public static void Married(Person a, Person b)
