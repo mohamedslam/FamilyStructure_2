@@ -22,11 +22,11 @@ namespace FamilyStructure_2
         #endregion
 
         #region Methods
-        public Person(string name, Person parent = null, Person spouse = null)
+        public Person(string name, Person parent = null, Person husspand = null)
         {
             this.FullName = name;
             this.ParantRecord = parent;
-            this.Husband = spouse;
+            this.Husband = husspand;
 
             if (parent != null)
             {
