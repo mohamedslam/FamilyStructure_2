@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-
 namespace FamilyStructure_2
 {
     class Person
     {
-
-
 
         #region Feilds
 
@@ -62,9 +55,9 @@ namespace FamilyStructure_2
             List<Person> Brothers_list = new List<Person>();
             if (ParantRecord != null)
             {
-                foreach (Person parent in GetMainParents())
+                foreach (Person p in GetMainParents())
                 {
-                    foreach (Person Brothers in parent.GetAllChilds())
+                    foreach (Person Brothers in p.GetAllChilds())
                     {
                         if (Brothers != null)
                         {
@@ -147,10 +140,10 @@ namespace FamilyStructure_2
             {
                 if (Husband.ParantRecord != null)
                 {
-                    foreach (Person inlaw in Husband.GetMainParents())
+                    foreach (Person Inlaw in Husband.GetMainParents())
                     {
-                        if (inlaw != null)
-                            inlaw_list.Add(inlaw);
+                        if (Inlaw != null)
+                            inlaw_list.Add(Inlaw);
                     }
                 }
                 return inlaw_list;
@@ -175,8 +168,6 @@ namespace FamilyStructure_2
         }
 
         #endregion
-
-
 
     }
 }

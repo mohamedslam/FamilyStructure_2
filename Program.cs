@@ -94,6 +94,8 @@ namespace FamilyStructure_2
             PrintNames(Youri.GetCousins());
             PrintNames(Youri.GetCousins());
 
+
+
             Console.ReadLine();
         }
 
